@@ -1,0 +1,20 @@
+#include <reg52.h>
+
+// 定义常量
+#define LEDB P1 // P1.0 端口连接 LEDB
+
+void delay(unsigned int time) { // 延时函数
+    unsigned int i, j;
+    for (i = time; i > 0; i--) {
+        for (j = 125; j > 0; j--);
+    }
+}
+
+void main() {
+    while (1) { // 无限循环
+        LEDB = 0; // 灭 LEDB
+        delay(1000); // 延时 1 秒
+        LEDB = 1; // 亮 LEDB
+        delay(1500); // 延时 1.5 秒
+    }
+}
